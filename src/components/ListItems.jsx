@@ -3,13 +3,13 @@ import ListItem from './ListItem';
 
 export default class ListItems extends Component {
   render() {
-    const items = this.props.items;
+    const items = this.props.items.map((item, index) => {
+      return(
+        <ListItem key={index} index={index} item={item}/>
+      );
+    });
     return(
-      <div>
-        <ListItem item={items[0].value}/>
-        <ListItem item={items[1].value}/>
-        <ListItem item={items[2].value}/>
-      </div>
+      <ul>{items}</ul>
     );
   }
 }
