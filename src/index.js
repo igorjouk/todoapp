@@ -4,5 +4,13 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+var initialObjects = {
+  items: [
+    {index: 1, value: "Help GrandMa", done: false, edit: false},
+    {index: 2, value: "Save the World", done: false, edit: false},
+    {index: 3, value: "Learn React", done: false, edit: false}
+  ]
+};
+
+ReactDOM.render(<App items={initialObjects.items}/>, document.getElementById('root'));
 registerServiceWorker();
