@@ -5,6 +5,13 @@ import InputForm from './components/InputForm';
 import ListItems from './components/ListItems';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: this.props.items
+    };
+  }
+
   render() {
     return (
       <div className="App">
