@@ -4,6 +4,7 @@ export default class InputForm extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onClickSort = this.onClickSort.bind(this);
   }
 
   onSubmit(event) {
@@ -16,11 +17,17 @@ export default class InputForm extends Component {
     }
   }
 
+  onClickSort() {
+    this.props.sortItems();
+  }
+
   render() {
     return (
       <form ref="form" onSubmit={this.onSubmit}>
         <input type="text" ref="itemName" placeholder="Insert new task"/>
         <input type="submit" className="btn btn-default" value="Add task"/>
+        <button onClick={this.onClickSort}
+          className="sort-btn glyphicon btn btn-default glyphicon glyphicon-arrow-down"/>
       </form>
     );
   }

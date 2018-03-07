@@ -9,8 +9,11 @@ var initialObjects = {
     {index: 1, value: "Help GrandMa", done: false, edit: false},
     {index: 2, value: "Save the World", done: false, edit: false},
     {index: 3, value: "Learn React", done: false, edit: false}
-  ]
+  ],
+  sortingDirection: "ascending"
 };
 
-ReactDOM.render(<App items={initialObjects.items}/>, document.getElementById('root'));
+ReactDOM.render(
+  <App items={initialObjects.items} sortingDirection={initialObjects.sortingDirection}/>,
+  document.getElementById('root'));
 registerServiceWorker();

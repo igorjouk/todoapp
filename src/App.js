@@ -12,8 +12,10 @@ export default class App extends Component {
     this.markAsDone = this.markAsDone.bind(this);
     this.editItem = this.editItem.bind(this);
     this.saveItem = this.saveItem.bind(this);
+    this.sortItems = this.sortItems.bind(this);
     this.state = {
-      items: this.props.items
+      items: this.props.items,
+      sortingDirection: this.props.sortingDirection
     };
   }
 
@@ -54,11 +56,34 @@ export default class App extends Component {
     this.setState({items: this.state.items});
   }
 
+  sortItems() {
+    if (this.state.sortingDirection === "ascending") {
+      this.setState({
+        items: this.sortDescending(this.state.items),
+        sortingDirection: "descending"
+      });
+    } else {
+      this.setState({
+        items: this.sortAscending(this.state.items),
+        sortingDirection: "ascending"
+      });
+    }
+  }
+
+  sortAscending(items) {
+    return items.sort((a, b) =>{return a.value.toLowerCase() > b.value.toLowerCase()});
+  }
+
+  sortDescending(items) {
+    return items.sort((a, b) => {return a.value.toLowerCase() < b.value.toLowerCase()});
+  }
+
   render() {
     return (
       <div className="App">
         <Header/>
-        <InputForm addItem={this.addItem}/>
+        <InputForm addItem={this.addItem}
+          sortingDirection={this.state.sortingDirection} sortItems={this.sortItems}/>
         <ListItems items={this.props.items} removeItem={this.removeItem}
           markAsDone={this.markAsDone} editItem={this.editItem} saveItem={this.saveItem}/>
       </div>
