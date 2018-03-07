@@ -6,6 +6,7 @@ export default class ListItem extends Component {
     super(props);
     this.onClickClose = this.onClickClose.bind(this);
     this.onClickDone = this.onClickDone.bind(this);
+    this.onClickEdit = this.onClickEdit.bind(this);
   }
 
   onClickClose() {
@@ -14,6 +15,10 @@ export default class ListItem extends Component {
 
   onClickDone() {
     this.props.markAsDone(this.props.index);
+  }
+
+  onClickEdit() {
+    this.props.editItem(this.props.index);
   }
 
   render() {
@@ -35,6 +40,7 @@ export default class ListItem extends Component {
         <span className={'glyphicon glyphicon-ok icon ' + doneState(done).glyphSymbol}
           onClick={this.onClickDone}>
         </span>
+        <span className='glyphicon glyphicon-pencil icon' onClick={this.onClickEdit}/>
         {this.props.item.value}
         <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
       </div>

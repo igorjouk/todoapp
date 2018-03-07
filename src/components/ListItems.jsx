@@ -6,7 +6,8 @@ export default class ListItems extends Component {
     const items = this.props.items.map((item, index) => {
       return(
         <ListItem key={index} index={index} item={item}
-          removeItem={this.props.removeItem} markAsDone={this.props.markAsDone}/>
+          removeItem={this.props.removeItem} markAsDone={this.props.markAsDone}
+          editItem={this.props.editItem}/>
       );
     });
     return(
