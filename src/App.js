@@ -9,6 +9,7 @@ export default class App extends Component {
     super(props);
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.markAsDone = this.markAsDone.bind(this);
     this.state = {
       items: this.props.items
     };
@@ -30,12 +31,20 @@ export default class App extends Component {
     this.setState({items: this.state.items});
   }
 
+  markAsDone(index) {
+    var item = this.state.items[index];
+    this.state.items.splice(index, 1);
+    item.done = !item.done;
+    item.done ? this.state.items.push(item) : this.state.items.unshift(item);
+    this.setState({items: this.state.items});
+  }
+
   render() {
     return (
       <div className="App">
         <Header/>
         <InputForm addItem={this.addItem}/>
-        <ListItems items={this.props.items} removeItem={this.removeItem}/>
+        <ListItems items={this.props.items} removeItem={this.removeItem} markAsDone={this.markAsDone}/>
       </div>
     );
   }
