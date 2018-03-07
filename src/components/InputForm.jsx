@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import './Form.css'
+import './InputForm.css'
 
 export default class InputForm extends Component {
   constructor(props) {
