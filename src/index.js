@@ -16,6 +16,6 @@ var initialObjects = {
 var defaultItems = JSON.parse(localStorage.getItem('items')) || initialObjects;
 
 ReactDOM.render(
-  <App items={initialObjects.items} sortingDirection={initialObjects.sortingDirection}/>,
+  <App items={defaultItems.items} sortingDirection={defaultItems.sortingDirection}/>,
   document.getElementById('root'));
 registerServiceWorker();

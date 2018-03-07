@@ -19,6 +19,10 @@ export default class App extends Component {
     };
   }
 
+  componentDidUpdate() {
+    localStorage.setItem('items', JSON.stringify(this.state));
+  }
+
   addItem(newValue) {
     this.state.items.unshift({
       index: this.state.items.length + 1,
