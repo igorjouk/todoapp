@@ -1,0 +1,21 @@
+.done {
+  color: #D72D2D;
+  text-decoration: line-through;
+}
+
+.done .glyphicon-pencil {
+  display: none;
+}
+
+.undone {
+  color: #5f7bc0;
+}
+
+.icon {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.close {
+  margin-top: 5px;
+}

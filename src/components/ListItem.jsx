@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import './ListItem.css'
 
 export default class ListItem extends Component {
   constructor(props) {
@@ -9,6 +10,12 @@ export default class ListItem extends Component {
     this.onClickEdit = this.onClickEdit.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
     this.handleKeyPressed = this.handleKeyPressed.bind(this);
+  }
+
+  componentDidUpdate() {
+    if(this.props.item.edit) {      
+      this.refs.textarea.focus();
+    }
   }
 
   onClickClose() {
@@ -48,14 +55,16 @@ export default class ListItem extends Component {
     };
 
     return(
-      <div >
-        <span className={'glyphicon glyphicon-ok icon ' + doneState(done).glyphSymbol}
-          onClick={this.onClickDone}>
-        </span>
-        <span className='glyphicon glyphicon-pencil icon' onClick={this.onClickEdit}/>
-        {this.props.item.value}
-        <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
-      </div>
+      <li className="list-group-item">
+        <div className={doneState(done).itemDone}>
+          <span className={'glyphicon glyphicon-ok icon ' + doneState(done).glyphSymbol}
+            onClick={this.onClickDone}>
+          </span>
+          <span className='glyphicon glyphicon-pencil icon' onClick={this.onClickEdit}/>
+          {this.props.item.value}
+          <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
+        </div>
+      </li>
     );
   }
 
