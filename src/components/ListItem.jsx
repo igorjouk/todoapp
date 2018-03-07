@@ -13,7 +13,7 @@ export default class ListItem extends Component {
   }
 
   componentDidUpdate() {
-    if(this.props.item.edit) {      
+    if(this.props.item.edit) {
       this.refs.textarea.focus();
     }
   }
@@ -70,8 +70,8 @@ export default class ListItem extends Component {
 
   renderEdit() {
     return (
-        <li>
-          <textarea ref="textarea" onKeyPress={this.handleKeyPressed}
+        <li className="list-group-item">
+          <textarea className="textarea" ref="textarea" onKeyPress={this.handleKeyPressed}
             defaultValue={this.props.item.value}>
           </textarea>
           <button type="button" onClick={this.onClickSave}>Save</button>
