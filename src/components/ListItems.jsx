@@ -7,7 +7,7 @@ export default class ListItems extends Component {
       return(
         <ListItem key={index} index={index} item={item}
           removeItem={this.props.removeItem} markAsDone={this.props.markAsDone}
-          editItem={this.props.editItem}/>
+          editItem={this.props.editItem} saveItem={this.props.saveItem}/>
       );
     });
     return(

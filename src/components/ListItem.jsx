@@ -7,6 +7,7 @@ export default class ListItem extends Component {
     this.onClickClose = this.onClickClose.bind(this);
     this.onClickDone = this.onClickDone.bind(this);
     this.onClickEdit = this.onClickEdit.bind(this);
+    this.onClickSave = this.onClickSave.bind(this);
   }
 
   onClickClose() {
@@ -19,6 +20,10 @@ export default class ListItem extends Component {
 
   onClickEdit() {
     this.props.editItem(this.props.index);
+  }
+
+  onClickSave() {
+    this.props.saveItem(this.props.index, this.refs.textarea.value)
   }
 
   renderNormal() {
@@ -49,9 +54,9 @@ export default class ListItem extends Component {
 
   renderEdit() {
     return (
-        <li className="list-group-item">
-          <textarea className="textarea" ref="textarea" onKeyPress={this.handleKeyPressed} defaultValue={this.props.item.value}></textarea>
-          <button type="button">Save</button>
+        <li>
+          <textarea ref="textarea" defaultValue={this.props.item.value}></textarea>
+          <button type="button" onClick={this.onClickSave}>Save</button>
         </li>
     );
   }
