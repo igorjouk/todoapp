@@ -35,8 +35,9 @@ export default class InputForm extends Component {
     return (
       <form className="form-inline" ref="form" onSubmit={this.onSubmit}>
         <input className="form-control" type="text" ref="itemName" placeholder="Insert new task"/>
-        <input type="submit" className="btn btn-default" value="Add task"/>
-        <button data-placement="bottom" title="Sort item" onClick={this.onClickSort}
+        <input type="submit" className="btn btn-default"
+          value="Add task" data-placement="bottom" title="Add new task"/>
+        <button data-placement="bottom" title="Sort tasks" onClick={this.onClickSort}
           className={"sort-btn glyphicon btn btn-default " + arrowStyle}/>
       </form>
     );

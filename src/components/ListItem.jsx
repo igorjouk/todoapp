@@ -58,11 +58,14 @@ export default class ListItem extends Component {
       <li className="list-group-item">
         <div className={doneState(done).itemDone}>
           <span className={'glyphicon glyphicon-ok icon ' + doneState(done).glyphSymbol}
+            data-placement="bottom" title={'Mark as ' + doneState(!done).itemDone}
             onClick={this.onClickDone}>
           </span>
-          <span className='glyphicon glyphicon-pencil icon' onClick={this.onClickEdit}/>
+          <span data-placement="bottom" title="Edit item"
+            className='glyphicon glyphicon-pencil icon' onClick={this.onClickEdit}/>
           {this.props.item.value}
-          <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
+          <button data-placement="bottom" title="Remove item"
+            type="button" className="close" onClick={this.onClickClose}>&times;</button>
         </div>
       </li>
     );
