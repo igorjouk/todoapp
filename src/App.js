@@ -8,6 +8,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.addItem = this.addItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
     this.state = {
       items: this.props.items
     };
@@ -24,12 +25,16 @@ export default class App extends Component {
     this.setState({items: this.state.items});
   }
 
+  removeItem(index) {
+    console.log("remove", index);
+  }
+
   render() {
     return (
       <div className="App">
         <Header/>
         <InputForm addItem={this.addItem}/>
-        <ListItems items={this.props.items}/>
+        <ListItems items={this.props.items} removeItem={this.removeItem}/>
       </div>
     );
   }
