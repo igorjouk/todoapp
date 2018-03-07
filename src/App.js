@@ -12,11 +12,15 @@ export default class App extends Component {
     };
   }
 
+  addItem(item) {
+    console.log("add item", item);
+  }
+
   render() {
     return (
       <div className="App">
         <Header/>
-        <InputForm/>
+        <InputForm addItem={this.addItem}/>
         <ListItems items={this.props.items}/>
       </div>
     );
