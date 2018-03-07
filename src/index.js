@@ -13,6 +13,8 @@ var initialObjects = {
   sortingDirection: "ascending"
 };
 
+var defaultItems = JSON.parse(localStorage.getItem('items')) || initialObjects;
+
 ReactDOM.render(
   <App items={initialObjects.items} sortingDirection={initialObjects.sortingDirection}/>,
   document.getElementById('root'));
