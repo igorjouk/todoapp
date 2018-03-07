@@ -8,6 +8,7 @@ export default class ListItem extends Component {
     this.onClickDone = this.onClickDone.bind(this);
     this.onClickEdit = this.onClickEdit.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
+    this.handleKeyPressed = this.handleKeyPressed.bind(this);
   }
 
   onClickClose() {
@@ -24,6 +25,12 @@ export default class ListItem extends Component {
 
   onClickSave() {
     this.props.saveItem(this.props.index, this.refs.textarea.value)
+  }
+
+  handleKeyPressed(e) {
+    if(e.key === "Enter") {
+      this.onClickSave();
+    }
   }
 
   renderNormal() {
@@ -55,7 +62,9 @@ export default class ListItem extends Component {
   renderEdit() {
     return (
         <li>
-          <textarea ref="textarea" defaultValue={this.props.item.value}></textarea>
+          <textarea ref="textarea" onKeyPress={this.handleKeyPressed}
+            defaultValue={this.props.item.value}>
+          </textarea>
           <button type="button" onClick={this.onClickSave}>Save</button>
         </li>
     );
