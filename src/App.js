@@ -7,13 +7,21 @@ import ListItems from './components/ListItems';
 export default class App extends Component {
   constructor(props) {
     super(props);
+    this.addItem = this.addItem.bind(this);
     this.state = {
       items: this.props.items
     };
   }
 
-  addItem(item) {
-    console.log("add item", item);
+  addItem(newValue) {
+    this.state.items.unshift({
+      index: this.state.items.length + 1,
+      value: newValue,
+      done: false,
+      edit: false
+    });
+
+    this.setState({items: this.state.items});
   }
 
   render() {
