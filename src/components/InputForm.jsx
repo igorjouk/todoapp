@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import './Form.css'
 
 export default class InputForm extends Component {
   constructor(props) {
@@ -31,11 +33,11 @@ export default class InputForm extends Component {
       "glyphicon glyphicon-sort-by-alphabet-alt";
 
     return (
-      <form ref="form" onSubmit={this.onSubmit}>
-        <input type="text" ref="itemName" placeholder="Insert new task"/>
+      <form className="form-inline" ref="form" onSubmit={this.onSubmit}>
+        <input className="form-control" type="text" ref="itemName" placeholder="Insert new task"/>
         <input type="submit" className="btn btn-default" value="Add task"/>
-        <button onClick={this.onClickSort}
-          className={"sort-btn glyphicon btn btn-default glyphicon " + arrowStyle}/>
+        <button data-placement="bottom" title="Sort item" onClick={this.onClickSort}
+          className={"sort-btn glyphicon btn btn-default " + arrowStyle}/>
       </form>
     );
   }
