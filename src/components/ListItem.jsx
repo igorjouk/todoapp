@@ -21,7 +21,7 @@ export default class ListItem extends Component {
     this.props.editItem(this.props.index);
   }
 
-  render() {
+  renderNormal() {
     var done = this.props.item.done;
     var doneState = (doneState) => {
       var classStates = {};
@@ -45,5 +45,23 @@ export default class ListItem extends Component {
         <button type="button" className="close" onClick={this.onClickClose}>&times;</button>
       </div>
     );
+  }
+
+  renderEdit() {
+    return (
+        <li className="list-group-item">
+          <textarea className="textarea" ref="textarea" onKeyPress={this.handleKeyPressed} defaultValue={this.props.item.value}></textarea>
+          <button type="button">Save</button>
+        </li>
+    );
+  }
+
+  render() {
+    if(this.props.item.edit) {
+      return this.renderEdit()
+    }
+    else {
+      return this.renderNormal()
+     }
   }
 }
