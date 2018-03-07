@@ -26,12 +26,16 @@ export default class InputForm extends Component {
   }
 
   render() {
+    const arrowStyle = this.props.sortingDirection === "ascending" ?
+      "glyphicon glyphicon-sort-by-alphabet" :
+      "glyphicon glyphicon-sort-by-alphabet-alt";
+
     return (
       <form ref="form" onSubmit={this.onSubmit}>
         <input type="text" ref="itemName" placeholder="Insert new task"/>
         <input type="submit" className="btn btn-default" value="Add task"/>
         <button onClick={this.onClickSort}
-          className="sort-btn glyphicon btn btn-default glyphicon glyphicon-arrow-down"/>
+          className={"sort-btn glyphicon btn btn-default glyphicon " + arrowStyle}/>
       </form>
     );
   }
