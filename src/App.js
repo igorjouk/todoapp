@@ -26,7 +26,8 @@ export default class App extends Component {
   }
 
   removeItem(index) {
-    console.log("remove", index);
+    this.state.items.splice(index, 1);
+    this.setState({items: this.state.items});
   }
 
   render() {
