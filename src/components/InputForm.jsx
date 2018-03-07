@@ -7,6 +7,10 @@ export default class InputForm extends Component {
     this.onClickSort = this.onClickSort.bind(this);
   }
 
+  componentDidMount() {
+    this.refs.itemName.focus();
+  }
+
   onSubmit(event) {
     event.preventDefault();
     var newValue = this.refs.itemName.value;
