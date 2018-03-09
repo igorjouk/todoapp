@@ -46,7 +46,7 @@ export default class ListItem extends Component {
       var classStates = {};
       if(doneState) {
         classStates.itemDone = "done"
-        classStates.glyphSymbol = "glyphicon-trash"
+        classStates.glyphSymbol = "glyphicon-repeat"
       } else {
         classStates.itemDone = "undone"
         classStates.glyphSymbol = "glyphicon-ok"
